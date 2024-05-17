@@ -15,11 +15,22 @@ void printDigits(int n, int forward) {
     }
 }
 
+void print_reverse(int num) {
+    if (num < 10) {
+        printf("%d ", num);
+    } else {
+        printf("%d ", num % 10);
+        print_reverse(num / 10);
+    }
+}
+
 int main() {
     int num;
     printf("Введите число: ");
     scanf("%d", &num);
     printDigits(num, 1);
+    printf("\n");
+    print_reverse(num);
     printf("\n");
     return 0;
 }
