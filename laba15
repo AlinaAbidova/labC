@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void printDigits(int n, int forward) {
+    if (n < 10) {
+        printf("%d ", n);
+        if (!forward) {
+            printDigits(n, 1);
+        }
+    } else {
+        printDigits(n / 10, forward);
+        printf("%d ", n % 10);
+        if (!forward) {
+            printDigits(n % 10, 0);
+        }
+    }
+}
+
+int main() {
+    int num;
+    printf("Введите число: ");
+    scanf("%d", &num);
+    printDigits(num, 1);
+    printf("\n");
+    return 0;
+}
